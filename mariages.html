@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mariages | Maison Liz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <meta name="description" content="Des prestations traiteur élégantes et raffinées pour sublimer vos mariages avec des buffets sur mesure et une ambiance chaleureuse.">
+  <meta property="og:image" content="./assets/mariages.jpg">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a class="nav-logo" href="./index.html">
+      <img src="./assets/logo.jpg" alt="Logo de Maison Liz">
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html">La Maison Liz</a></li>
+      <li><a class="active" href="./mariages.html">Mariages</a></li>
+      <li><a href="./entreprises.html">Entreprises</a></li>
+      <li><a href="./particuliers.html">Particuliers</a></li>
+      <li><a href="./galerie.html">Galerie</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a onclick="closeMobile()" href="./index.html">La Maison Liz</a>
+    <a class="active" onclick="closeMobile()" href="./mariages.html">Mariages</a>
+    <a onclick="closeMobile()" href="./entreprises.html">Entreprises</a>
+    <a onclick="closeMobile()" href="./particuliers.html">Particuliers</a>
+    <a onclick="closeMobile()" href="./galerie.html">Galerie</a>
+    <a onclick="closeMobile()" href="./contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <section id="page-header-mariages">
+    <span class="section-label reveal">Mariages</span>
+    <div class="gold-rule reveal reveal-delay-1"></div>
+    <h1 class="section-title reveal reveal-delay-1">Une table aussi belle<br>que votre <em>histoire</em></h1>
+    <p class="ph-body reveal reveal-delay-2">
+      Maison Liz crée des prestations de traiteur sur mesure pour votre mariage —
+      des buffets sucrés-salés aux mocktails d'accueil, pensés avec élégance,
+      chaleur et une attention portée aux moindres détails.
+    </p>
+  </section>
+
+  <!-- ── IMAGE PLEINE LARGEUR ───────────────────────────────── -->
+  <section id="mariage-fullimg">
+    <div class="mariage-fullimg-photo"></div>
+    <div class="mariage-fullimg-overlay"></div>
+    <div class="mariage-fullimg-caption reveal">
+      <span class="cap-eyebrow">Le soin du détail</span>
+      <p class="cap-title">Chaque bouchée pensée,<br><em>chaque instant orchestré.</em></p>
+    </div>
+  </section>
+
+  <!-- ── ACCOMPAGNEMENT ─────────────────────────────────────── -->
+  <section id="accompagnement">
+    <div class="acc-image reveal-left" style="transition: opacity .9s ease, transform .9s ease; opacity: 0; transform: translateX(-24px);">
+      <div class="acc-image-photo"></div>
+      <div class="acc-image-fade"></div>
+    </div>
+    <div class="acc-text">
+      <span class="section-label reveal">Notre engagement</span>
+      <div class="gold-rule reveal reveal-delay-1"></div>
+      <h2 class="section-title reveal reveal-delay-1">
+        Un accompagnement<br><em>de bout en bout</em>
+      </h2>
+      <ul class="acc-list">
+        <li class="reveal reveal-delay-1">
+          <span class="acc-list-bullet"></span>
+          <div>
+            <strong>Premier contact & devis personnalisé</strong>
+            On prend le temps d'écouter votre vision, votre budget,
+            votre style — et on vous propose une formule qui vous ressemble.
+          </div>
+        </li>
+        <li class="reveal reveal-delay-2">
+          <span class="acc-list-bullet"></span>
+          <div>
+            <strong>Installation & service le jour J</strong>
+            Notre équipe s'occupe de tout : installation, dressage,
+            service, rangement. Vous profitez. Nous veillons.
+          </div>
+        </li>
+        <li class="reveal reveal-delay-3">
+          <span class="acc-list-bullet"></span>
+          <div>
+            <strong>Coordination avec vos prestataires</strong>
+            Nous travaillons en harmonie avec votre wedding planner,
+            traiteur principal ou salle pour une journée sans accroc.
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── CITATION ───────────────────────────────────────────── -->
+  <section id="citation-mariage">
+    <div class="citation-inner">
+      <span class="citation-mark reveal">"</span>
+      <p class="citation-text reveal reveal-delay-1">
+        Nous créons pour vous des buffets sur mesure, avec un <em>accompagnement </em> personnalisé pour un évènement en toute sérénité
+      </p>
+      <span class="citation-author reveal reveal-delay-2">Maison Liz</span>
+      <div class="citation-rule reveal reveal-delay-2"></div>
+    </div>
+  </section>
+
+  <!-- ── CTA CONTACT ────────────────────────────────────────── -->
+  <section id="cta-mariage">
+    <div class="cta-m-inner">
+      <span class="cta-m-label reveal">Votre mariage</span>
+      <h2 class="cta-m-title reveal reveal-delay-1">
+        Construisons ensemble<br><em>votre plus belle table</em>
+      </h2>
+      <p class="cta-m-body reveal reveal-delay-2">
+        Chaque mariage est unique. Parlons de votre projet — la date, le lieu,
+        l'ambiance que vous souhaitez — et nous créerons une prestation
+        qui vous ressemble.
+      </p>
+      <div class="cta-m-actions reveal reveal-delay-3">
+        <div class="cta-m-contact-item">
+          <span class="cta-m-contact-label">Email</span>
+          <a href="mailto:maisonliz.events@gmail.com" class="cta-m-contact-value">maisonliz.events@gmail.com</a>
+        </div>
+        <div class="cta-m-divider"></div>
+        <a href="./contact.html" class="btn-gold" style="opacity:1; animation:none;">Prendre contact</a>
+        <div class="cta-m-divider"></div>
+        <div class="cta-m-contact-item">
+          <span class="cta-m-contact-label">Téléphone</span>
+          <a href="tel:+33651183307" class="cta-m-contact-value">06 51 18 33 07</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Maison <em style="font-style:italic">Liz</em></span>
+    <span class="footer-copy">© 2026 Maison Liz — Traiteur Événementiel</span>
+  </footer>
+
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animCursor() {
+      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+      rx += (mx - rx) * .12; ry += (my - ry) * .12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Reveal on scroll (covers .reveal and the custom reveal-left on acc-image)
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // for the acc-image custom inline animation
+          if (e.target.id === 'acc-image-col') {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateX(0)';
+          }
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: .1 });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // acc-image column reveal (uses inline style)
+    const accImage = document.querySelector('#accompagnement .acc-image');
+    if (accImage) {
+      accImage.style.transition = 'opacity .9s ease, transform .9s ease';
+      const accIO = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          accImage.style.opacity = '1';
+          accImage.style.transform = 'translateX(0)';
+          accIO.unobserve(accImage);
+        }
+      }, { threshold: .1 });
+      accIO.observe(accImage);
+    }
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    function closeMobile() { mobileMenu.classList.remove('open'); }
+  </script>
+</body>
+</html>

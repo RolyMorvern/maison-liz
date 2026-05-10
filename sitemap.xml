@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>/</loc>
+  </url>
+
+  <url>
+    <loc>/mariages.html</loc>
+  </url>
+
+  <url>
+    <loc>/entreprises.html</loc>
+  </url>
+
+  <url>
+    <loc>/particuliers.html</loc>
+  </url>
+
+  <url>
+    <loc>/galerie.html</loc>
+  </url>
+
+  <url>
+    <loc>/contact.html</loc>
+  </url>
+
+</urlset>

@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <meta name="description" content="Maison Liz, traiteur événementiel élégant spécialisé dans les buffets sucrés et salés pour mariages, entreprises et événements privés.">
+  <meta property="og:image" content="./assets/img4.jpg">
 </head>
 <body>
 
@@ -18,14 +20,16 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <a class="nav-logo" href="#">
+    <a class="nav-logo" href="./index.html">
       <img src="./assets/logo.jpg" alt="Logo de Maison Liz">
     </a>
     <ul class="nav-links">
-      <li><a href="#about">La Maison</a></li>
-      <li><a href="#prestations">Prestations</a></li>
-      <li><a href="#galerie">Galerie</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a class="active" href="./index.html">La Maison Liz</a></li>
+      <li><a href="./mariages.html">Mariages</a></li>
+      <li><a href="./entreprises.html">Entreprises</a></li>
+      <li><a href="./particuliers.html">Particuliers</a></li>
+      <li><a href="./galerie.html">Galerie</a></li>
+      <li><a href="./contact.html">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -34,10 +38,13 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu">
-    <a href="#about" onclick="closeMobile()">La Maison</a>
-    <a href="#prestations" onclick="closeMobile()">Prestations</a>
-    <a href="#galerie" onclick="closeMobile()">Galerie</a>
-    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <a class="active" onclick="closeMobile()" href="./index.html">La Maison Liz</a>
+    <a onclick="closeMobile()" href="./mariages.html">Mariages</a>
+    <a onclick="closeMobile()" href="./entreprises.html">Entreprises</a>
+    <a onclick="closeMobile()" href="./particuliers.html">Particuliers</a>
+    <a onclick="closeMobile()" href="./galerie.html">Galerie</a>
+    <a onclick="closeMobile()" href="./contact.html">Contact</a>
+
   </div>
 
   <!-- HERO -->
@@ -52,6 +59,16 @@
       <p class="hero-sub">Des prestations élégantes pour vos événements</p>
       <div class="hero-divider"></div>
       <a href="#prestations" class="btn-gold">Découvrir nos prestations</a>
+    </div>
+  </section>
+
+  <!-- IMAGE STRIP -->
+  <section id="image-strip">
+    <div class="image-strip-photo"></div>
+    <div class="image-strip-overlay"></div>
+    <div class="image-strip-caption reveal">
+      <span class="strip-eyebrow">L'art de recevoir</span>
+      <p class="strip-title">Des instants soignés,<br><em>des mémoires qui durent.</em></p>
     </div>
   </section>
 
@@ -90,151 +107,61 @@
     </div>
   </section>
 
-  <!-- PRESTATIONS -->
-  <section id="prestations">
-    <div class="prestations-header">
-      <span class="section-label reveal">Nos Prestations</span>
+  <!-- SIGNATURES MAISON LIZ -->
+  <section id="signatures">
+    <div class="signatures-header">
+      <span class="section-label reveal">Signatures Maison Liz</span>
       <div class="gold-rule reveal reveal-delay-1"></div>
-      <h2 class="section-title reveal reveal-delay-1">Une expertise,<br><em>trois univers</em></h2>
+      <h2 class="section-title reveal reveal-delay-1">Ce que nous<br><em>créons pour vous</em></h2>
     </div>
-    <div class="prestations-grid">
+    <div class="signatures-grid">
 
-      <div class="prestation-card reveal">
-        <span class="card-num">01</span>
-        <span class="card-icon">♡</span>
-        <h3 class="card-title">Mariages</h3>
-        <p class="card-desc">
-          Votre jour le plus précieux mérite des saveurs à la hauteur de l'émotion. 
+      <div class="sig-card reveal">
+        <div class="sig-card-photo sig-photo-1"></div>
+        <div class="sig-card-overlay"></div>
+        <div class="sig-card-body">
+          <span class="sig-card-num">01</span>
+          <span class="sig-card-label">Cérémonie &amp; réception</span>
+          <h3 class="sig-card-title">Mariages</h3>
+          <p class="sig-card-desc">
+            Votre jour le plus précieux mérite des saveurs à la hauteur de l'émotion. 
           Nous orchestrons chaque détail pour que votre table soit aussi belle que votre histoire.
-        </p>
-        <a href="#contact" class="btn-outline">En savoir plus</a>
+          </p>
+          <a href="./mariages.html" class="sig-card-link">Explorer</a>
+        </div>
       </div>
 
-      <div class="prestation-card reveal reveal-delay-1">
-        <span class="card-num">02</span>
-        <span class="card-icon">◈</span>
-        <h3 class="card-title">Entreprises</h3>
-        <p class="card-desc">
-          Séminaires, lancements de produits, cocktails d'affaires, team buildings — 
+      <div class="sig-card reveal reveal-delay-1">
+        <div class="sig-card-photo sig-photo-2"></div>
+        <div class="sig-card-overlay"></div>
+        <div class="sig-card-body">
+          <span class="sig-card-num">02</span>
+          <span class="sig-card-label">Séminaires &amp; cocktails</span>
+          <h3 class="sig-card-title">Entreprises</h3>
+          <p class="sig-card-desc">
+            Séminaires, lancements de produits, cocktails d'affaires, team buildings — 
           Maison Liz accompagne les entreprises qui veulent marquer les esprits. 
-          Une restauration irréprochable au service de votre image de marque.
-        </p>
-        <a href="#contact" class="btn-outline">En savoir plus</a>
+          Une restauration irréprochable au service de votre image de marque.</p>
+          <a href="./entreprises.html" class="sig-card-link">Explorer</a>
+        </div>
       </div>
 
-      <div class="prestation-card reveal reveal-delay-2">
-        <span class="card-num">03</span>
-        <span class="card-icon">◎</span>
-        <h3 class="card-title">Particuliers</h3>
-        <p class="card-desc">
-          Anniversaires, baptêmes, fêtes de famille, dîners privés — que l'événement 
+      <div class="sig-card reveal reveal-delay-2">
+        <div class="sig-card-photo sig-photo-3"></div>
+        <div class="sig-card-overlay"></div>
+        <div class="sig-card-body">
+          <span class="sig-card-num">03</span>
+          <span class="sig-card-label">Moments privés</span>
+          <h3 class="sig-card-title">Particuliers</h3>
+          <p class="sig-card-desc">
+            Anniversaires, baptêmes, fêtes de famille, dîners privés — que l'événement 
           soit intime ou festif, nous créons pour vous un buffet personnalisé qui 
           reflète votre style et ravit vos convives.
-        </p>
-        <a href="#contact" class="btn-outline">En savoir plus</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- GALERIE -->
-  <section id="galerie">
-    <div class="galerie-header">
-      <span class="section-label reveal">Galerie</span>
-      <div class="gold-rule reveal reveal-delay-1"></div>
-      <h2 class="section-title reveal reveal-delay-1">Nos <em>créations</em></h2>
-      <p class="section-body reveal reveal-delay-2">
-        Chaque événement est unique. Découvrez quelques-unes de nos réalisations.
-      </p>
-    </div>
-    <div class="galerie-grid">
-
-      <div id="galerie-item-1" class="galerie-item reveal" style="height:483px;">
-        <div class="galerie-placeholder">
-          <span class="gallery-icon">◈</span>
-          <span class="gallery-label">Firminy Cosmopolite</span>
-        </div>
-        <div class="galerie-overlay"><span>Firminy Cosmopolite</span></div>
-      </div>
-
-      <div id="galerie-item-2" class="galerie-item reveal reveal-delay-1" style="height:240px;">
-        <div class="galerie-placeholder">
-          <span class="gallery-icon">◎</span>
-          <span class="gallery-label">Salé</span>
-        </div>
-        <div class="galerie-overlay"><span>Salé</span></div>
-      </div>
-
-      <div id="galerie-item-3" class="galerie-item reveal reveal-delay-2" style="height:240px;">
-        <div class="galerie-placeholder">
-          <span class="gallery-icon">♡</span>
-          <span class="gallery-label">Sucré</span>
-        </div>
-        <div class="galerie-overlay"><span>Sucré</span></div>
-      </div>
-
-      <div id="galerie-item-5" class="galerie-item reveal reveal-delay-1">
-        <div class="galerie-placeholder">
-          <span class="gallery-icon">◈</span>
-          <span class="gallery-label">La MIFE</span>
-        </div>
-        <div class="galerie-overlay"><span>La MIFE</span></div>
-      </div>
-
-      <div id="galerie-item-4" class="galerie-item reveal reveal-delay-2" style="height:240px;">
-        <div class="galerie-placeholder">
-          <span class="gallery-icon">◎</span>
-          <span class="gallery-label">Buffet Sucré-Salé</span>
-        </div>
-        <div class="galerie-overlay"><span>Buffet Sucré-Salé</span></div>
-      </div>
-
-      <div id="galerie-item-6" class="galerie-item reveal reveal-delay-3" style="height:240px;">
-        <div class="galerie-placeholder">
-          <span class="gallery-icon">♡</span>
-          <span class="gallery-label">Buffet</span>
-        </div>
-        <div class="galerie-overlay"><span>Buffet</span></div>
-      </div>
-
-    </div>
-    <p style="margin-top:32px; font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-align:center;" class="reveal">
-      ↗ Retrouvez toute notre galerie sur <a class="social-link-gallery" href="https://www.instagram.com/maisonliz_events" target="_blank">Instagram</a> ou sur <a class="social-link-gallery" href="https://www.tiktok.com/@maisonliz_events" target="_blank">TikTok</a>
-    </p>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-inner">
-      <span class="section-label reveal" style="text-align:center; display:block;">Contact</span>
-      <div class="gold-rule reveal reveal-delay-1" style="margin: 0 auto 32px;"></div>
-      <h2 class="section-title reveal reveal-delay-1">Parlons de votre<br><em>événement</em></h2>
-      <p class="section-body reveal reveal-delay-2">
-        Chaque projet est unique. Contactez-nous pour un devis personnalisé 
-        et laissez Maison Liz créer pour vous une expérience inoubliable.
-      </p>
-
-      <div class="contact-details reveal reveal-delay-2">
-        <div class="contact-item">
-          <span class="contact-item-label">Email</span>
-          <a href="mailto:maisonliz.events@gmail.com" class="contact-item-value">maisonliz.events@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <span class="contact-item-label">Téléphone</span>
-          <a href="tel:+0651183307" class="contact-item-value">+33 06 51 18 33 07</a>
+          </p>
+          <a href="./particuliers.html" class="sig-card-link">Explorer</a>
         </div>
       </div>
 
-      <div class="social-links reveal reveal-delay-3">
-        <a href="https://www.instagram.com/maisonliz_events" target="_blank" class="social-link">
-          <span class="social-icon">🅾</span>
-          <span>Instagram</span>
-        </a>
-        <a href="https://www.tiktok.com/@maisonliz_events" target="_blank" class="social-link">
-          <span class="social-icon">♪</span>
-          <span>TikTok</span>
-        </a>
-      </div>
     </div>
   </section>
 
@@ -243,9 +170,7 @@
     <span class="footer-logo">Maison <em style="font-style:italic">Liz</em></span>
     <span class="footer-copy">© 2026 Maison Liz — Traiteur Événementiel</span>
   </footer>
-
   <script>
-    // Custom cursor
     const cursor = document.getElementById('cursor');
     const ring   = document.getElementById('cursor-ring');
     let mx = 0, my = 0, rx = 0, ry = 0;
@@ -279,3 +204,5 @@
   </script>
 </body>
 </html>
+
+<!-- Site Created By Roly Morvern (rmorvern@gmail.com) -->

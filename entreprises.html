@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entreprises | Maison Liz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <meta name="description" content="Maison Liz accompagne vos événements d’entreprise avec des prestations traiteur élégantes, professionnelles et sur mesure.">
+  <meta property="og:image" content="./assets/entreprises.jpg">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a class="nav-logo" href="./index.html">
+      <img src="./assets/logo.jpg" alt="Logo de Maison Liz">
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html">La Maison Liz</a></li>
+      <li><a href="./mariages.html">Mariages</a></li>
+      <li><a class="active" href="./entreprises.html">Entreprises</a></li>
+      <li><a href="./particuliers.html">Particuliers</a></li>
+      <li><a href="./galerie.html">Galerie</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a onclick="closeMobile()" href="./index.html">La Maison Liz</a>
+    <a onclick="closeMobile()" href="./mariages.html">Mariages</a>
+    <a class="active" onclick="closeMobile()" href="./entreprises.html">Entreprises</a>
+    <a onclick="closeMobile()" href="./particuliers.html">Particuliers</a>
+    <a onclick="closeMobile()" href="./galerie.html">Galerie</a>
+    <a onclick="closeMobile()" href="./contact.html">Contact</a>
+  </div>
+
+  <!-- ── PAGE HEADER ───────────────────────────────────────── -->
+  <section id="page-header-entreprises">
+    <span class="section-label reveal">Entreprises</span>
+    <div class="gold-rule reveal reveal-delay-1"></div>
+    <h1 class="section-title reveal reveal-delay-1">
+      Une restauration à la hauteur<br>de votre <em>image</em>
+    </h1>
+    <p class="ph-body reveal reveal-delay-2">
+      Maison Liz accompagne les entreprises qui veulent soigner chaque détail —
+      du cocktail d'inauguration au buffet de séminaire, une présence discrète,
+      professionnelle et irréprochable.
+    </p>
+  </section>
+
+  <!-- ── IMAGE STRIP ────────────────────────────────────────── -->
+  <section id="image-strip-ent">
+    <div class="ent-strip-photo"></div>
+    <div class="ent-strip-overlay"></div>
+    <div class="ent-strip-caption reveal">
+      <span class="ent-strip-eyebrow">Votre image, notre exigence</span>
+      <p class="ent-strip-title">Des prestations pensées<br><em>pour les professionnels.</em></p>
+    </div>
+  </section>
+
+  <!-- ── PRESTATIONS CORPORATE ──────────────────────────────── -->
+  <section id="prestations-ent">
+    <div class="pe-header">
+      <span class="section-label reveal">Nos formules</span>
+      <div class="gold-rule reveal reveal-delay-1"></div>
+      <h2 class="section-title reveal reveal-delay-1">
+        Pour chaque événement<br><em>professionnel</em>
+      </h2>
+    </div>
+    <div class="pe-grid">
+
+      <div class="pe-card reveal">
+        <span class="pe-card-icon">◈ &nbsp; Sur mesure</span>
+        <h3 class="pe-card-title">Inaugurations & lancements</h3>
+        <p class="pe-card-desc">
+          Premier contact avec vos invités, clients ou partenaires — notre cocktail
+          d'accueil soigne l'impression que vous laissez. Bouchées raffinées,
+          mise en scène sobre et élégante, service discret et attentionné.
+        </p>
+        <span class="pe-card-tag">Cocktail · Bouchées · Service</span>
+      </div>
+
+      <div class="pe-card reveal reveal-delay-1">
+        <span class="pe-card-icon">◇ &nbsp; Sur mesure</span>
+        <h3 class="pe-card-title">Séminaires & journées de travail</h3>
+        <p class="pe-card-desc">
+          Pauses-café, déjeuners ou dîners de fin de séminaire — Maison Liz
+          adapte le format, la quantité et le style à votre agenda et votre
+          espace. Buffet sucré-salé, plateau repas haut de gamme, formule debout.
+        </p>
+        <span class="pe-card-tag">Buffet · Plateau · Pauses</span>
+      </div>
+
+      <div class="pe-card reveal reveal-delay-1">
+        <span class="pe-card-icon">◎ &nbsp; Sur mesure</span>
+        <h3 class="pe-card-title">Soirées d'entreprise & team buildings</h3>
+        <p class="pe-card-desc">
+          Créer du lien autour d'une belle table, c'est aussi ça le team building.
+          Nous proposons des formules conviviales et gourmandes pour vos soirées
+          d'équipe, vœux de fin d'année ou célébrations internes.
+        </p>
+        <span class="pe-card-tag">Soirées · Vœux · Cohésion</span>
+      </div>
+
+      <div class="pe-card reveal reveal-delay-2">
+        <span class="pe-card-icon">✦ &nbsp; Sur mesure</span>
+        <h3 class="pe-card-title">Événements clients & réceptions VIP</h3>
+        <p class="pe-card-desc">
+          Pour vos rendez-vous les plus exigeants — remises de prix, réceptions
+          partenaires, dîners de gala corporate — une prestation pensée dans
+          les moindres détails, à votre image et à celle de vos invités.
+        </p>
+        <span class="pe-card-tag">VIP · Gala · Personnalisé</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ENGAGEMENTS ────────────────────────────────────────── -->
+  <section id="engagements-ent">
+    <div class="eng-image">
+      <div class="eng-image-photo"></div>
+      <div class="eng-image-fade"></div>
+    </div>
+    <div class="eng-text">
+      <span class="section-label reveal">Notre approche</span>
+      <div class="gold-rule reveal reveal-delay-1"></div>
+      <h2 class="section-title reveal reveal-delay-1">
+        Sérieux, réactivité<br><em>et discrétion</em>
+      </h2>
+      <ul class="eng-list">
+        <li class="eng-item reveal reveal-delay-1">
+          <span class="eng-bullet"></span>
+          <div>
+            <strong>Devis rapide & transparent</strong>
+            <span>Un échange suffit pour recevoir une proposition claire, détaillée
+            et sans surprise — adaptée à votre budget et votre contrainte de timing.</span>
+          </div>
+        </li>
+        <li class="eng-item reveal reveal-delay-2">
+          <span class="eng-bullet"></span>
+          <div>
+            <strong>Coordination sans friction</strong>
+            <span>Nous prenons contact avec votre salle, votre équipe technique ou
+            votre event manager pour assurer une installation fluide et ponctuelle.</span>
+          </div>
+        </li>
+        <li class="eng-item reveal reveal-delay-3">
+          <span class="eng-bullet"></span>
+          <div>
+            <strong>Présence & service le jour J</strong>
+            <span>Installation, service et rangement assurés par notre équipe.
+            Vous gardez la maîtrise de votre programme, nous gérons le reste.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <!-- ── CHIFFRES ───────────────────────────────────────────── -->
+  <div id="chiffres-ent">
+    <div class="chiffre-block reveal">
+      <span class="chiffre-num">Sur</span>
+      <span class="chiffre-label">Mesure</span>
+    </div>
+    <div class="chiffre-block reveal reveal-delay-1">
+      <span class="chiffre-num">100%</span>
+      <span class="chiffre-label">Artisanal</span>
+    </div>
+    <div class="chiffre-block reveal reveal-delay-2">
+      <span class="chiffre-num">Fait</span>
+      <span class="chiffre-label">Avec passion</span>
+    </div>
+    <div class="chiffre-block reveal reveal-delay-3">
+      <span class="chiffre-num">Zéro</span>
+      <span class="chiffre-label">Compromis</span>
+    </div>
+  </div>
+
+  <!-- ── CTA CONTACT ────────────────────────────────────────── -->
+  <section id="cta-ent">
+    <div class="cta-e-inner">
+      <span class="section-label reveal" style="justify-content:center; display:block;">Votre prochain événement</span>
+      <div class="gold-rule reveal reveal-delay-1" style="margin: 0 auto 32px;"></div>
+      <h2 class="cta-e-title reveal reveal-delay-1">
+        Discutons de votre<br><em>projet professionnel</em>
+      </h2>
+      <p class="cta-e-body reveal reveal-delay-2">
+        Chaque événement d'entreprise est différent. Partagez-nous votre date,
+        votre lieu et vos contraintes — nous vous revenons rapidement avec
+        une proposition claire et adaptée.
+      </p>
+      <div class="cta-e-actions reveal reveal-delay-3">
+        <div class="cta-e-contact">
+          <span class="cta-e-contact-label">Email</span>
+          <a href="mailto:maisonliz.events@gmail.com" class="cta-e-contact-value">maisonliz.events@gmail.com</a>
+        </div>
+        <div class="cta-e-sep"></div>
+        <a href="./contact.html" class="btn-gold" style="opacity:1; animation:none;">Prendre contact</a>
+        <div class="cta-e-sep"></div>
+        <div class="cta-e-contact">
+          <span class="cta-e-contact-label">Téléphone</span>
+          <a href="tel:+33651183307" class="cta-e-contact-value">06 51 18 33 07</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Maison <em style="font-style:italic">Liz</em></span>
+    <span class="footer-copy">© 2026 Maison Liz — Traiteur Événementiel</span>
+  </footer>
+
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animCursor() {
+      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+      rx += (mx - rx) * .12; ry += (my - ry) * .12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: .1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    function closeMobile() { mobileMenu.classList.remove('open'); }
+  </script>
+</body>
+</html>

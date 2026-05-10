@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Particuliers | Maison Liz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <meta name="description" content="Buffets, brunchs et prestations traiteur pour anniversaires, événements privés et moments de partage signés Maison Liz.">
+  <meta property="og:image" content="./assets/particuliers.jpg">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a class="nav-logo" href="./index.html">
+      <img src="./assets/logo.jpg" alt="Logo de Maison Liz">
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html">La Maison Liz</a></li>
+      <li><a href="./mariages.html">Mariages</a></li>
+      <li><a href="./entreprises.html">Entreprises</a></li>
+      <li><a class="active" href="./particuliers.html">Particuliers</a></li>
+      <li><a href="./galerie.html">Galerie</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a onclick="closeMobile()" href="./index.html">La Maison Liz</a>
+    <a onclick="closeMobile()" href="./mariages.html">Mariages</a>
+    <a onclick="closeMobile()" href="./entreprises.html">Entreprises</a>
+    <a class="active" onclick="closeMobile()" href="./particuliers.html">Particuliers</a>
+    <a onclick="closeMobile()" href="./galerie.html">Galerie</a>
+    <a onclick="closeMobile()" href="./contact.html">Contact</a>
+  </div>
+
+  <!-- ── PAGE HEADER ──────────────────────────────────────── -->
+  <section id="page-header-part">
+    <span class="section-label reveal">Particuliers</span>
+    <div class="gold-rule reveal reveal-delay-1"></div>
+    <h1 class="section-title reveal reveal-delay-1">
+      Des moments de partage,<br><em>sublimés</em>
+    </h1>
+    <p class="ph-body reveal reveal-delay-2">
+      Maison Liz crée des buffets et des prestations sur mesure pour vos
+      événements privés — anniversaires, dîners en famille ou
+      entre amis. Une ambiance raffinée, des saveurs authentiques,
+      et une attention portée à chaque détail.
+    </p>
+  </section>
+
+  <!-- ── IMAGE STRIP ───────────────────────────────────────── -->
+  <section id="image-strip-part">
+    <div class="part-strip-photo"></div>
+    <div class="part-strip-overlay"></div>
+    <div class="part-strip-caption reveal">
+      <span class="part-strip-eyebrow">L'art de célébrer</span>
+      <p class="part-strip-title">Des tables qui racontent<br><em>vos plus beaux souvenirs.</em></p>
+    </div>
+  </section>
+
+  <!-- ── CITATION ─────────────────────────────────────────── -->
+  <section id="citation-part">
+    <div class="cit-inner">
+      <span class="cit-mark reveal">"</span>
+      <p class="cit-text reveal reveal-delay-1">
+        La table, c'est l'endroit où tout le monde<br>
+        se retrouve. Nous la rendons <em>inoubliable.</em>
+      </p>
+      <div class="cit-rule reveal reveal-delay-2"></div>
+    </div>
+  </section>
+
+  <!-- ── IMAGE PLEINE LARGEUR ──────────────────────────────── -->
+
+  <!-- ── COMMENT ÇA MARCHE ────────────────────────────────── -->
+  <section id="comment-ca-marche">
+    <div class="ccm-text">
+      <span class="section-label reveal">Comment ça se passe</span>
+      <div class="gold-rule reveal reveal-delay-1"></div>
+      <h2 class="section-title reveal reveal-delay-1">
+        Simple, humain<br><em>et sans stress</em>
+      </h2>
+      <div class="ccm-steps">
+        <div class="ccm-step reveal reveal-delay-1">
+          <span class="ccm-step-num">1</span>
+          <div>
+            <strong class="ccm-step-title">On échange sur votre projet</strong>
+            <span class="ccm-step-text">Un message ou un appel suffit. On parle de votre
+            événement, de vos envies, du nombre d'invités et du budget.</span>
+          </div>
+        </div>
+        <div class="ccm-step reveal reveal-delay-2">
+          <span class="ccm-step-num">2</span>
+          <div>
+            <strong class="ccm-step-title">On vous prépare une proposition</strong>
+            <span class="ccm-step-text">Menu, formule, présentation — vous recevez
+            une proposition personnalisée, claire et sans surprise.</span>
+          </div>
+        </div>
+        <div class="ccm-step reveal reveal-delay-3">
+          <span class="ccm-step-num">3</span>
+          <div>
+            <strong class="ccm-step-title">On s'occupe de tout le jour J</strong>
+            <span class="ccm-step-text">Installation, dressage, service et rangement —
+            vous êtes libres de profiter pleinement de vos invités.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ccm-image">
+      <div class="ccm-image-photo"></div>
+      <div class="ccm-image-fade"></div>
+    </div>
+  </section>
+
+  <!-- ── CTA CONTACT ──────────────────────────────────────── -->
+  <section id="cta-part">
+    <div class="cta-p-inner">
+      <span class="section-label reveal" style="display:block; text-align:center;">Votre événement</span>
+      <div class="gold-rule reveal reveal-delay-1" style="margin: 0 auto 32px;"></div>
+      <h2 class="cta-p-title reveal reveal-delay-1">
+        Parlons de votre<br><em>prochain moment</em>
+      </h2>
+      <p class="cta-p-body reveal reveal-delay-2">
+        Chaque événement privé mérite une attention particulière.
+        Dites-nous la date, le lieu, l'ambiance que vous souhaitez —
+        et nous créons quelque chose qui vous ressemble.
+      </p>
+      <div class="cta-p-actions reveal reveal-delay-3">
+        <div class="cta-p-contact">
+          <span class="cta-p-contact-label">Email</span>
+          <a href="mailto:maisonliz.events@gmail.com" class="cta-p-contact-value">maisonliz.events@gmail.com</a>
+        </div>
+        <div class="cta-p-sep"></div>
+        <a href="./contact.html" class="btn-gold" style="opacity:1; animation:none;">Prendre contact</a>
+        <div class="cta-p-sep"></div>
+        <div class="cta-p-contact">
+          <span class="cta-p-contact-label">Téléphone</span>
+          <a href="tel:+33651183307" class="cta-p-contact-value">06 51 18 33 07</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Maison <em style="font-style:italic">Liz</em></span>
+    <span class="footer-copy">© 2026 Maison Liz — Traiteur Événementiel</span>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animCursor() {
+      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+      rx += (mx - rx) * .12; ry += (my - ry) * .12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: .1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    function closeMobile() { mobileMenu.classList.remove('open'); }
+  </script>
+</body>
+</html>
