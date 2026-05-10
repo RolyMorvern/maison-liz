@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Maison Liz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <meta name="description" content="Contactez Maison Liz pour imaginer ensemble une prestation traiteur élégante et adaptée à votre événement.">
+  <meta property="og:image" content="./assets/contact.jpg">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a class="nav-logo" href="./index.html">
+      <img src="./assets/logo.jpg" alt="Logo de Maison Liz">
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html">La Maison Liz</a></li>
+      <li><a href="./mariages.html">Mariages</a></li>
+      <li><a href="./entreprises.html">Entreprises</a></li>
+      <li><a href="./particuliers.html">Particuliers</a></li>
+      <li><a href="./galerie.html">Galerie</a></li>
+      <li><a class="active" href="./contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a onclick="closeMobile()" href="./index.html">La Maison Liz</a>
+    <a onclick="closeMobile()" href="./mariages.html">Mariages</a>
+    <a onclick="closeMobile()" href="./entreprises.html">Entreprises</a>
+    <a onclick="closeMobile()" href="./particuliers.html">Particuliers</a>
+    <a onclick="closeMobile()" href="./galerie.html">Galerie</a>
+    <a class="active" onclick="closeMobile()" href="./contact.html">Contact</a>
+  </div>
+
+  <!-- ── LAYOUT PRINCIPAL ──────────────────────────────────── -->
+  <div id="contact-page">
+
+    <!-- COLONNE IMAGE -->
+    <div class="contact-image-col">
+      <div class="contact-image-photo"></div>
+      <div class="contact-image-overlay"></div>
+      <div class="contact-image-quote reveal">
+        <p class="contact-image-quote-text">
+          Chaque beau moment<br>commence par <em>une conversation.</em>
+        </p>
+        <div class="contact-image-quote-rule"></div>
+      </div>
+    </div>
+
+    <!-- COLONNE CONTENU -->
+    <div class="contact-content-col">
+
+      <!-- Header -->
+      <div class="contact-header reveal">
+        <span class="section-label" style="margin-bottom:16px; display:block;">Contact</span>
+        <div class="gold-rule" style="margin-bottom:24px;"></div>
+        <h1 class="contact-title">
+          Parlons de votre<br><em>prochain événement</em>
+        </h1>
+        <p class="contact-intro">
+          Chaque projet est unique. Un message, un appel — et nous construisons
+          ensemble une expérience à la hauteur de votre moment.
+        </p>
+      </div>
+
+      <!-- Coordonnées -->
+      <div class="contact-coords reveal reveal-delay-1">
+
+        <a href="mailto:maisonliz.events@gmail.com" class="coord-item">
+          <div class="coord-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m2 7 10 7 10-7"/>
+            </svg>
+          </div>
+          <div class="coord-body">
+            <span class="coord-label">Email</span>
+            <span class="coord-value">maisonliz.events@gmail.com</span>
+          </div>
+        </a>
+
+        <a href="tel:+33651183307" class="coord-item">
+          <div class="coord-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 12 19.79 19.79 0 0 1 1.64 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.71 5.6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.28 16"/>
+            </svg>
+          </div>
+          <div class="coord-body">
+            <span class="coord-label">Téléphone</span>
+            <span class="coord-value">06 51 18 33 07</span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Réseaux sociaux -->
+      <div class="reveal reveal-delay-2">
+        <span class="contact-socials-label">Suivre Maison Liz</span>
+        <div class="contact-socials">
+
+          <a href="https://www.instagram.com/maisonliz_events" target="_blank" class="social-btn">
+            <span class="social-btn-icon">
+              <svg class="icon-instagram" viewBox="0 0 24 24" width="16" height="16">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+            Instagram
+          </a>
+
+          <a href="https://www.tiktok.com/@maisonliz_events" target="_blank" class="social-btn">
+            <span class="social-btn-icon">
+              <svg class="icon-tiktok" viewBox="0 0 24 24" width="16" height="16">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.05a8.17 8.17 0 0 0 4.78 1.53V7.13a4.85 4.85 0 0 1-1.01-.44z"/>
+              </svg>
+            </span>
+            TikTok
+          </a>
+
+          <a href="https://www.snapchat.com/add/maisonliz_event" target="_blank" class="social-btn">
+            <span class="social-btn-icon">
+              <svg class="icon-snapchat" viewBox="0 0 24 24" width="16" height="16">
+                <path d="M12.065 2C9.27 2 6.862 3.914 6.862 7.173v.78l-.83-.124c-.39-.062-.675.28-.675.624v.062c0 .344.22.625.57.75l.935.312c-.467 1.218-1.25 2.25-2.124 2.75-.312.187-.44.5-.312.843.249.624 1.03.936 2.186.78.094.5.44.843.936.843.22 0 .406-.062.623-.125.624-.25 1.155-.624 2.186-.624.97 0 1.56.374 2.186.624.217.063.404.125.623.125.78 0 1.093-.624 1.093-1.187.936.125 1.654-.125 1.935-.718.125-.312 0-.624-.312-.812-.873-.5-1.655-1.53-2.124-2.75l.935-.312c.344-.125.57-.405.57-.75v-.062c0-.344-.28-.687-.67-.625l-.836.125v-.78C17.137 3.914 14.733 2 12.065 2z"/>
+              </svg>
+            </span>
+            Snapchat
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Zone géographique -->
+      <div class="contact-zone reveal reveal-delay-3">
+        <span class="contact-zone-label">Zone d'intervention</span>
+        <p class="contact-zone-text">
+          Saint-Étienne · Lyon<br>
+          et alentours
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Maison <em style="font-style:italic">Liz</em></span>
+    <span class="footer-copy">© 2026 Maison Liz — Traiteur Événementiel</span>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring   = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animCursor() {
+      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+      rx += (mx - rx) * .12; ry += (my - ry) * .12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: .1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    function closeMobile() { mobileMenu.classList.remove('open'); }
+  </script>
+</body>
+</html>
