@@ -10,19 +10,96 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <link rel="icon" type="image/png" href="./assets/favicon.png">
-  <meta name="description" content="Découvrez l’univers Maison Liz à travers une galerie de buffets, événements, créations gourmandes et instants de partage.">
-  <meta property="og:image" content="./assets/img1.jpg">
+  <style>
+    #galerie { background: var(--dark-2); padding-top: 160px; }
+    #galerie .galerie-header { margin-bottom: 72px; }
+
+    .galerie-grid-30 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 260px;
+      gap: 3px;
+    }
+    .gi--tall { grid-row: span 2; }
+
+    .gi {
+      position: relative; overflow: hidden;
+      background-color: var(--dark-3);
+    }
+    .gi-photo {
+      position: absolute; inset: 0;
+      background-size: cover !important;
+      background-position: center !important;
+      filter: brightness(.55) saturate(.75);
+      transform: scale(1.04);
+      transition: transform .85s cubic-bezier(.25,.46,.45,.94), filter .55s;
+    }
+    .gi:hover .gi-photo { transform: scale(1); filter: brightness(.75) saturate(.95); }
+    .gi-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,13,13,.72) 0%, transparent 52%);
+      opacity: 0; transition: opacity .4s;
+    }
+    .gi-label { display: none; }
+
+    /* Image assignments — replace with your real photos */
+    .gi:nth-child(1)  .gi-photo { background-image: url('./assets/img1.jpg'); }
+    .gi:nth-child(2)  .gi-photo { background-image: url('./assets/img2.jpg'); background-position: bottom !important; }
+    .gi:nth-child(3)  .gi-photo { background-image: url('./assets/img3.jpg'); }
+    .gi:nth-child(4)  .gi-photo { background-image: url('./assets/img4.jpg'); background-position: top !important; }
+    .gi:nth-child(5)  .gi-photo { background-image: url('./assets/img5.jpg'); }
+    .gi:nth-child(6)  .gi-photo { background-image: url('./assets/img6.jpg'); background-position: top 35% center !important; }
+    .gi:nth-child(7)  .gi-photo { background-image: url('./assets/img7.jpg'); }
+    .gi:nth-child(8)  .gi-photo { background-image: url('./assets/img8.jpg'); background-position: top !important; }
+    .gi:nth-child(9)  .gi-photo { background-image: url('./assets/img9.jpg'); }
+    .gi:nth-child(10) .gi-photo { background-image: url('./assets/img10.jpg'); background-position: bottom !important; }
+    .gi:nth-child(11) .gi-photo { background-image: url('./assets/img11.jpg'); }
+    .gi:nth-child(12) .gi-photo { background-image: url('./assets/img12.jpg'); background-position: top !important; }
+    .gi:nth-child(13) .gi-photo { background-image: url('./assets/img13.jpg'); }
+    .gi:nth-child(14) .gi-photo { background-image: url('./assets/img14.jpg'); background-position: bottom !important; }
+    .gi:nth-child(15) .gi-photo { background-image: url('./assets/img15.jpg'); }
+    .gi:nth-child(16) .gi-photo { background-image: url('./assets/img16.jpg'); background-position: top !important; }
+    .gi:nth-child(17) .gi-photo { background-image: url('./assets/img17.jpg'); }
+    .gi:nth-child(18) .gi-photo { background-image: url('./assets/img18.jpg'); background-position: bottom !important; }
+    .gi:nth-child(19) .gi-photo { background-image: url('./assets/img19.jpg'); }
+    .gi:nth-child(20) .gi-photo { background-image: url('./assets/img20.jpg'); background-position: bottom !important; }
+    .gi:nth-child(21) .gi-photo { background-image: url('./assets/img21.jpg'); }
+    .gi:nth-child(22) .gi-photo { background-image: url('./assets/img22.jpg'); }
+    .gi:nth-child(23) .gi-photo { background-image: url('./assets/img23.jpg'); }
+    .gi:nth-child(24) .gi-photo { background-image: url('./assets/img24.jpg'); background-position: top !important; }
+    .gi:nth-child(25) .gi-photo { background-image: url('./assets/img25.jpg'); }
+    .gi:nth-child(26) .gi-photo { background-image: url('./assets/img26.jpg'); background-position: center !important; }
+    .gi:nth-child(27) .gi-photo { background-image: url('./assets/img27.jpg'); }
+    .gi:nth-child(28) .gi-photo { background-image: url('./assets/img28.jpg'); background-position: center !important; }
+    .gi:nth-child(29) .gi-photo { background-image: url('./assets/img29.jpg'); }
+    .gi:nth-child(30) .gi-photo { background-image: url('./assets/img30.jpg'); }
+
+    .galerie-footer-note {
+      margin-top: 48px;
+      font-size: .7rem; color: var(--text-muted);
+      letter-spacing: .12em; text-align: center;
+    }
+    .galerie-footer-note a {
+      color: var(--text-muted); text-decoration: none; transition: color .3s;
+    }
+    .galerie-footer-note a:hover { color: var(--gold); }
+
+    @media (max-width: 1024px) {
+      .galerie-grid-30 { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
+    }
+    @media (max-width: 640px) {
+      .galerie-grid-30 { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
+      .gi--tall { grid-row: span 1; }
+    }
+  </style>
 </head>
 <body>
 
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
 
-  <!-- NAV -->
   <nav id="navbar">
-    <a class="nav-logo" href="./index.html">
-      <img src="./assets/logo.jpg" alt="Logo de Maison Liz">
-    </a>
+    <a class="nav-logo" href="./index.html"><img src="./assets/logo.jpg" alt="Logo de Maison Liz"></a>
     <ul class="nav-links">
       <li><a href="./index.html">La Maison Liz</a></li>
       <li><a href="./mariages.html">Mariages</a></li>
@@ -31,12 +108,9 @@
       <li><a class="active" href="./galerie.html">Galerie</a></li>
       <li><a href="./contact.html">Contact</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
 
-  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu">
     <a onclick="closeMobile()" href="./index.html">La Maison Liz</a>
     <a onclick="closeMobile()" href="./mariages.html">Mariages</a>
@@ -44,87 +118,80 @@
     <a onclick="closeMobile()" href="./particuliers.html">Particuliers</a>
     <a class="active" onclick="closeMobile()" href="./galerie.html">Galerie</a>
     <a onclick="closeMobile()" href="./contact.html">Contact</a>
-
   </div>
 
-  <!-- GALERIE -->
   <section id="galerie">
     <div class="galerie-header">
-      <br>
-      <br>  
       <span class="section-label reveal">Galerie</span>
       <div class="gold-rule reveal reveal-delay-1"></div>
       <h2 class="section-title reveal reveal-delay-1">Nos <em>créations</em></h2>
-      <p class="section-body reveal reveal-delay-2">
-        Chaque événement est unique. Découvrez quelques-unes de nos réalisations.
-      </p>
+      <p class="section-body reveal reveal-delay-2">Chaque événement est unique. Découvrez quelques-unes de nos réalisations.</p>
     </div>
-    <div class="galerie-grid">
 
-      <div id="galerie-item-1" class="galerie-item reveal" style="height:483px;">
-        <div class="galerie-overlay"><span>Firminy Cosmopolite</span></div>
-      </div>
-
-      <div id="galerie-item-2" class="galerie-item reveal reveal-delay-1" style="height:240px;">
-        <div class="galerie-overlay"><span>Salé</span></div>
-      </div>
-
-      <div id="galerie-item-3" class="galerie-item reveal reveal-delay-2" style="height:240px;">
-        <div class="galerie-overlay"><span>Sucré</span></div>
-      </div>
-
-      <div id="galerie-item-5" class="galerie-item reveal reveal-delay-1">
-        <div class="galerie-overlay"><span>La MIFE</span></div>
-      </div>
-
-      <div id="galerie-item-4" class="galerie-item reveal reveal-delay-2" style="height:240px;">
-        <div class="galerie-overlay"><span>Buffet Sucré-Salé</span></div>
-      </div>
-
-      <div id="galerie-item-6" class="galerie-item reveal reveal-delay-3" style="height:240px;">
-        <div class="galerie-overlay"><span>Buffet</span></div>
-      </div>
-
+    <div class="galerie-grid-30">
+      <div class="gi gi--tall reveal"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Firminy Cosmopolite</span></div>
+      <div class="gi reveal reveal-delay-1"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Buffet salé</span></div>
+      <div class="gi reveal reveal-delay-2"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Table sucrée</span></div>
+      <div class="gi reveal reveal-delay-1"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">La MIFE</span></div>
+      <div class="gi reveal reveal-delay-2"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Mise en scène</span></div>
+      <div class="gi reveal"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Verrines</span></div>
+      <div class="gi gi--tall reveal reveal-delay-1"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Buffet sucré-salé</span></div>
+      <div class="gi reveal reveal-delay-2"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Pâtisseries</span></div>
+      <div class="gi reveal"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Cocktail d'accueil</span></div>
+      <div class="gi reveal reveal-delay-1"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Choux garnis</span></div>
+      <div class="gi reveal reveal-delay-2"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Navettes apéritives</span></div>
+      <div class="gi reveal"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Mariage</span></div>
+      <div class="gi reveal reveal-delay-1"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Détails de table</span></div>
+      <div class="gi gi--tall reveal reveal-delay-2"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Ambiance</span></div>
+      <div class="gi reveal"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Mini burgers</span></div>
+      <div class="gi reveal reveal-delay-1"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Tartelettes</span></div>
+      <div class="gi reveal reveal-delay-2"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Brunchs</span></div>
+      <div class="gi reveal"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Séminaire</span></div>
+      <div class="gi gi--tall reveal reveal-delay-1"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Réception</span></div>
+      <div class="gi reveal reveal-delay-2"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Bruschettas</span></div>
+      <div class="gi reveal"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Financiers</span></div>
+      <div class="gi reveal reveal-delay-1"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Anniversaire</span></div>
+      <div class="gi reveal reveal-delay-2"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Mignardises</span></div>
+      <div class="gi reveal"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Feuilletés</span></div>
+      <div class="gi gi--tall reveal reveal-delay-1"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Buffet</span></div>
+      <div class="gi reveal reveal-delay-2"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Soirée privée</span></div>
+      <div class="gi reveal"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Baptême</span></div>
+      <div class="gi reveal reveal-delay-1"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Brownies</span></div>
+      <div class="gi reveal reveal-delay-2"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Layer cake</span></div>
+      <div class="gi reveal"><div class="gi-photo"></div><div class="gi-overlay"></div><span class="gi-label">Instants partagés</span></div>
     </div>
-    <br>
-    <p style="margin-top:32px; font-size:.7rem; color:var(--text-muted); letter-spacing:.12em; text-align:center;" class="reveal">
-      ↗ Retrouvez toute notre galerie sur <a class="social-link-gallery" href="https://www.instagram.com/maisonliz_events" target="_blank">Instagram</a> ou sur <a class="social-link-gallery" href="https://www.tiktok.com/@maisonliz_events" target="_blank">TikTok</a>
+
+    <p class="galerie-footer-note reveal">
+      ↗ Retrouvez toute notre galerie sur
+      <a href="https://www.instagram.com/maisonliz_events" target="_blank">Instagram</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.tiktok.com/@maisonliz_events" target="_blank">TikTok</a>
     </p>
   </section>
-  <!-- FOOTER -->
+
   <footer>
     <span class="footer-logo">Maison <em style="font-style:italic">Liz</em></span>
     <span class="footer-copy">© 2026 Maison Liz — Traiteur Événementiel</span>
   </footer>
 
   <script>
-    // Custom cursor
     const cursor = document.getElementById('cursor');
     const ring   = document.getElementById('cursor-ring');
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
     function animCursor() {
-      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-      rx += (mx - rx) * .12; ry += (my - ry) * .12;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      cursor.style.left = mx+'px'; cursor.style.top = my+'px';
+      rx += (mx-rx)*.12; ry += (my-ry)*.12;
+      ring.style.left = rx+'px'; ring.style.top = ry+'px';
       requestAnimationFrame(animCursor);
     }
     animCursor();
-
-    // Navbar scroll
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-    });
-
-    // Reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+    const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: .12 });
-    reveals.forEach(el => io.observe(el));
-
-    // Mobile menu
+    }, { threshold: .08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
