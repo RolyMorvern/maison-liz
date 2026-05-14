@@ -1328,6 +1328,7 @@ footer {
 .mobile-menu.open a:nth-child(4) { transition-delay: 0.34s; }
 .mobile-menu.open a:nth-child(5) { transition-delay: 0.42s; }
 .mobile-menu.open a:nth-child(6) { transition-delay: 0.50s; }
+.mobile-menu.open a:nth-child(7) { transition-delay: 0.59s; }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
