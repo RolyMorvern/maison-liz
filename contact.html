@@ -10,8 +10,183 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <link rel="icon" type="image/png" href="./assets/favicon.png">
-  <meta name="description" content="Contactez Maison Liz pour imaginer ensemble une prestation traiteur élégante et adaptée à votre événement.">
-  <meta property="og:image" content="./assets/contact.jpg">
+
+  <style>
+    /* ─── LAYOUT PRINCIPAL ─── */
+    #contact-page {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* ─── COLONNE IMAGE ─── */
+    .contact-image-col {
+      position: sticky; top: 0;
+      height: 100vh; overflow: hidden;
+    }
+    .contact-image-photo {
+      position: absolute; inset: 0;
+      background: url('./assets/contact.jpg') left / cover no-repeat;
+      filter: brightness(.45) saturate(.75);
+      transform: scale(1.04);
+      transition: transform 12s ease;
+    }
+    .contact-image-col:hover .contact-image-photo { transform: scale(1); }
+    .contact-image-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to right, transparent 60%, var(--dark) 100%),
+        linear-gradient(to top, rgba(13,13,13,.6) 0%, transparent 50%);
+    }
+    /* Quote flottante dans l'image */
+    .contact-image-quote {
+      position: absolute; bottom: 60px; left: 52px; right: 80px; z-index: 2;
+    }
+    .contact-image-quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 300;
+      font-style: italic; line-height: 1.5;
+      color: rgba(240,236,228,.6);
+    }
+    .contact-image-quote-text em { color: var(--gold); font-style: normal; }
+    .contact-image-quote-rule {
+      width: 28px; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin-top: 16px;
+    }
+
+    /* ─── COLONNE CONTENU ─── */
+    .contact-content-col {
+      padding: 140px 72px 80px 64px;
+      display: flex; flex-direction: column;
+      justify-content: flex-start;
+      background: var(--dark);
+    }
+
+    /* ─── HEADER ─── */
+    .contact-header { margin-bottom: 72px; }
+    .contact-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 300;
+      line-height: 1.15; color: #f0ece4;
+      margin-bottom: 20px;
+    }
+    .contact-title em { font-style: italic; color: var(--gold); }
+    .contact-intro {
+      font-size: .83rem; font-weight: 300; line-height: 1.9;
+      color: var(--text-muted); max-width: 400px;
+    }
+
+    /* ─── COORDONNÉES ─── */
+    .contact-coords {
+      display: flex; flex-direction: column; gap: 0;
+      margin-bottom: 60px;
+    }
+    .coord-item {
+      display: flex; align-items: flex-start; gap: 28px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(201,165,90,.08);
+      transition: border-color .3s;
+      text-decoration: none;
+    }
+    .coord-item:first-child { border-top: 1px solid rgba(201,165,90,.08); }
+    .coord-item:hover { border-bottom-color: rgba(201,165,90,.2); }
+    .coord-icon {
+      flex-shrink: 0; width: 36px; height: 36px;
+      border: 1px solid rgba(201,165,90,.2); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .6rem; color: var(--gold);
+      transition: background .3s, border-color .3s;
+      margin-top: 2px;
+    }
+    .coord-item:hover .coord-icon {
+      background: rgba(201,165,90,.08); border-color: var(--gold);
+    }
+    .coord-body { display: flex; flex-direction: column; gap: 4px; }
+    .coord-label {
+      font-size: .55rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .coord-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 300; color: #f0ece4;
+      transition: color .3s;
+    }
+    .coord-item:hover .coord-value { color: var(--gold); }
+    .coord-sub {
+      font-size: .72rem; font-weight: 300; color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ─── RÉSEAUX SOCIAUX ─── */
+    .contact-socials-label {
+      font-size: .58rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold-dim); display: block; margin-bottom: 20px;
+    }
+    .contact-socials {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+    .social-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 22px;
+      border: 1px solid rgba(201,165,90,.18);
+      font-size: .65rem; font-weight: 300; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--text-muted);
+      text-decoration: none;
+      transition: border-color .3s, color .3s, background .3s;
+    }
+    .social-btn:hover {
+      border-color: var(--gold); color: var(--gold);
+      background: rgba(201,165,90,.04);
+    }
+    .social-btn-icon {
+      width: 16px; height: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    /* Instagram icon */
+    .icon-instagram { stroke: currentColor; fill: none; stroke-width: 1.5; }
+    /* TikTok icon */
+    .icon-tiktok { fill: currentColor; }
+    /* Snapchat icon */
+    .icon-snapchat { fill: currentColor; }
+
+    /* ─── ZONE & INFOS ─── */
+    .contact-zone {
+      padding-top: 40px;
+      border-top: 1px solid rgba(201,165,90,.08);
+    }
+    .contact-zone-label {
+      font-size: .55rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold-dim); display: block; margin-bottom: 14px;
+    }
+    .contact-zone-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 300; color: rgba(240,236,228,.6);
+      line-height: 1.6;
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 1024px) {
+      #contact-page { grid-template-columns: 1fr; }
+      .contact-image-col {
+        position: relative; height: 52vh; min-height: 340px;
+      }
+      .contact-image-overlay {
+        background: linear-gradient(to bottom, transparent 40%, var(--dark) 100%);
+      }
+      .contact-image-quote { bottom: 32px; left: 32px; right: 32px; }
+      .contact-content-col { padding: 60px 40px 72px; }
+    }
+    @media (max-width: 768px) {
+      .contact-content-col { padding: 48px 24px 64px; }
+      .contact-image-quote { display: none; }
+      .contact-socials { gap: 8px; }
+      .social-btn { padding: 10px 16px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -29,6 +204,7 @@
       <li><a href="./entreprises.html">Entreprises</a></li>
       <li><a href="./particuliers.html">Particuliers</a></li>
       <li><a href="./galerie.html">Galerie</a></li>
+      <li><a href="./sandwich.html">Sandwiches</a></li>
       <li><a class="active" href="./contact.html">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -43,6 +219,7 @@
     <a onclick="closeMobile()" href="./entreprises.html">Entreprises</a>
     <a onclick="closeMobile()" href="./particuliers.html">Particuliers</a>
     <a onclick="closeMobile()" href="./galerie.html">Galerie</a>
+    <a onclick="closeMobile()" href="./sandwich.html">Sandwiches</a>
     <a class="active" onclick="closeMobile()" href="./contact.html">Contact</a>
   </div>
 
@@ -91,6 +268,7 @@
           <div class="coord-body">
             <span class="coord-label">Email</span>
             <span class="coord-value">maisonliz.events@gmail.com</span>
+            <span class="coord-sub">Réponse sous 24h</span>
           </div>
         </a>
 
@@ -103,7 +281,29 @@
           </div>
           <div class="coord-body">
             <span class="coord-label">Téléphone</span>
-            <span class="coord-value">06 51 18 33 07</span>
+            <span class="coord-value">06 51 18 33 07<span/>
+              <br>
+            <span class="coord-value">06 87 65 46 66<span/>
+            <br>
+            <span class="coord-sub">Disponible en semaine</span>
+          </div>
+        </a>
+
+        <a href="#" class="coord-item">
+          <div class="coord-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 3H1v13h13V3z"/>
+              <path d="M14 8h4l5 5v3h-9V8z"/>
+              <circle cx="6.5" cy="18.5" r="2"/>
+              <circle cx="18.5" cy="18.5" r="2"/>
+            </svg>
+          </div>
+          <div class="coord-body">
+            <span class="coord-label">Livraison</span>
+            <span class="coord-value">Box, plateaux & buffets<span/>
+            <br>
+            <span class="coord-sub">Livraison de box à partager, plateaux repas et mise en place de buffets.</span>
           </div>
         </a>
 
@@ -134,7 +334,7 @@
             TikTok
           </a>
 
-          <a href="https://www.snapchat.com/add/maisonliz_event" target="_blank" class="social-btn">
+          <a href="https://www.snapchat.com/add/maisonliz_events" target="_blank" class="social-btn">
             <span class="social-btn-icon">
               <svg class="icon-snapchat" viewBox="0 0 24 24" width="16" height="16">
                 <path d="M12.065 2C9.27 2 6.862 3.914 6.862 7.173v.78l-.83-.124c-.39-.062-.675.28-.675.624v.062c0 .344.22.625.57.75l.935.312c-.467 1.218-1.25 2.25-2.124 2.75-.312.187-.44.5-.312.843.249.624 1.03.936 2.186.78.094.5.44.843.936.843.22 0 .406-.062.623-.125.624-.25 1.155-.624 2.186-.624.97 0 1.56.374 2.186.624.217.063.404.125.623.125.78 0 1.093-.624 1.093-1.187.936.125 1.654-.125 1.935-.718.125-.312 0-.624-.312-.812-.873-.5-1.655-1.53-2.124-2.75l.935-.312c.344-.125.57-.405.57-.75v-.062c0-.344-.28-.687-.67-.625l-.836.125v-.78C17.137 3.914 14.733 2 12.065 2z"/>
@@ -150,8 +350,7 @@
       <div class="contact-zone reveal reveal-delay-3">
         <span class="contact-zone-label">Zone d'intervention</span>
         <p class="contact-zone-text">
-          Saint-Étienne · Lyon<br>
-          et alentours
+          Saint-Étienne · Lyon et alentours — sur devis pour les déplacements
         </p>
       </div>
 

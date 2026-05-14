@@ -508,7 +508,7 @@ section { padding: 120px 60px; }
 }
 .ent-strip-photo {
   position: absolute; inset: 0;
-  background: url('./assets/img6.jpg') center / cover no-repeat;
+  background: url('./assets/img36.jpg') center / cover no-repeat;
   filter: brightness(.45) saturate(.75);
   transform: scale(1.05);
   transition: transform 10s ease, filter .6s;
@@ -541,7 +541,7 @@ section { padding: 120px 60px; }
 
 .part-strip-photo {
   position: absolute; inset: 0;
-  background: url('./assets/img4.jpg') center / cover no-repeat;
+  background: url('./assets/img37.jpg') center / cover no-repeat;
   filter: brightness(.45) saturate(.8);
   transform: scale(1.05);
   transition: transform 10s ease, filter .6s;
@@ -607,7 +607,7 @@ section { padding: 120px 60px; }
 }
 .eng-image-photo {
   position: absolute; inset: 0;
-  background: url('./assets/img2.jpg') center bottom / cover no-repeat;
+  background: url('./assets/mains.jpg') left bottom / cover no-repeat;
   filter: brightness(.4) saturate(.7);
   transform: scale(1.05);
   transition: transform 9s ease;
@@ -678,7 +678,7 @@ section { padding: 120px 60px; }
 }
 .mariage-fullimg-photo {
   position: absolute; inset: 0;
-  background: url('./assets/img1.jpg') center / cover no-repeat;
+  background: url('./assets/mariages_2.jpg') center / cover no-repeat;
   filter: brightness(.5) saturate(.8);
   transform: scale(1.05);
   transition: transform 10s ease;
@@ -815,6 +815,54 @@ section { padding: 120px 60px; }
   width: 32px; height: 1px;
   background: linear-gradient(to right, transparent, var(--gold), transparent);
   margin: 24px auto 0;
+}
+
+/* ─── CLIENTS CIBLES (particuliers) ─── */
+#clients-cibles {
+  background: var(--dark-2);
+  border-top: 1px solid rgba(201,165,90,.08);
+  border-bottom: 1px solid rgba(201,165,90,.08);
+}
+.cc-header { margin-bottom: 72px; }
+.cc-intro {
+  font-size: .85rem; font-weight: 300; line-height: 1.9;
+  color: var(--text-muted); max-width: 540px;
+  margin-top: 8px;
+}
+.cc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.cc-card {
+  background: var(--dark-3);
+  padding: 48px 44px;
+  position: relative; overflow: hidden;
+  transition: background .4s;
+}
+.cc-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  transform: scaleX(0); transform-origin: center;
+  transition: transform .6s ease;
+}
+.cc-card:hover { background: var(--dark-4); }
+.cc-card:hover::after { transform: scaleX(1); }
+.cc-card-icon {
+  font-size: .55rem; letter-spacing: .32em;
+  color: var(--gold-dim); display: block; margin-bottom: 18px;
+}
+.cc-card-title {
+  font-family: var(--serif);
+  font-size: 1.45rem; font-weight: 400;
+  color: #f0ece4; display: block; margin-bottom: 12px;
+  transition: color .3s;
+}
+.cc-card:hover .cc-card-title { color: var(--gold); }
+.cc-card-desc {
+  font-size: .8rem; font-weight: 300; line-height: 1.9;
+  color: var(--text-muted);
 }
 
 /* ─── IMAGE PLEINE LARGEUR (particuliers) ─── */
@@ -1317,8 +1365,9 @@ footer {
   .acc-image-fade { background: linear-gradient(to bottom, transparent 60%, var(--dark-2) 100%); }
   .acc-text { padding: 60px 40px; }
 
+  .cc-grid { grid-template-columns: repeat(2, 1fr); }
+
   /* Particuliers */
-  #page-header-part { padding: 130px 40px 70px; }
   #comment-ca-marche { grid-template-columns: 1fr; }
   .ccm-image { height: 300px; order: -1; }
   .ccm-image-fade { background: linear-gradient(to bottom, transparent 60%, var(--dark-2) 100%); }
@@ -1382,6 +1431,7 @@ footer {
 
   /* Particuliers */
   #page-header-part { padding: 120px 24px 60px; }
+  .cc-grid { grid-template-columns: 1fr; }
   .ccm-text { padding: 60px 24px; }
   .part-strip-caption { padding: 28px 24px; }
   .part-fullimg-caption { padding: 28px 24px; }
