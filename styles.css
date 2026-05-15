@@ -541,7 +541,7 @@ section { padding: 120px 60px; }
 
 .part-strip-photo {
   position: absolute; inset: 0;
-  background: url('./assets/img37.jpg') center / cover no-repeat;
+  background: url('./assets/img37.png') center top 65% / cover no-repeat;
   filter: brightness(.45) saturate(.8);
   transform: scale(1.05);
   transition: transform 10s ease, filter .6s;
@@ -678,7 +678,7 @@ section { padding: 120px 60px; }
 }
 .mariage-fullimg-photo {
   position: absolute; inset: 0;
-  background: url('./assets/mariages_2.jpg') center / cover no-repeat;
+  background: url('./assets/img38!.jpg') center / cover no-repeat;
   filter: brightness(.5) saturate(.8);
   transform: scale(1.05);
   transition: transform 10s ease;
@@ -1302,7 +1302,11 @@ footer {
   background: rgba(13,13,13,.98);
   z-index: 99;
   flex-direction: column;
-  align-items: center; justify-content: center; gap: 40px;
+  align-items: center;
+  justify-content: center;      /* keeps it centered when there's room */
+  gap: 40px;
+  padding: 80px 24px 40px;      /* top padding clears the navbar */
+  overflow-y: auto;             /* scrollable if links don't fit */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -1445,6 +1449,17 @@ footer {
     .contact-image-quote { display: none; }
     .contact-socials { gap: 8px; }
     .social-btn { padding: 10px 16px; }
+}
+
+@media (max-height: 600px) {
+  .mobile-menu {
+    justify-content: flex-start;  /* anchor to top so scrolling works naturally */
+    gap: 24px;
+    padding-top: 90px;
+  }
+  .mobile-menu a {
+    font-size: 1.4rem;            /* slightly smaller to fit more links */
+  }
 }
 
 @media (hover: none) and (pointer: coarse) {
