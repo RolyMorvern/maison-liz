@@ -10,6 +10,105 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <style>
+    /* ── REVIEWS SECTION ── */
+    #reviews {
+      background: var(--dark-2);
+      border-top: 1px solid rgba(201,165,90,.08);
+      border-bottom: 1px solid rgba(201,165,90,.08);
+      position: relative;
+      overflow: hidden;
+    }
+    #reviews::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: none;
+      pointer-events: none;
+    }
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .reviews-header .gold-rule {
+      margin: 12px auto 20px;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .review-card {
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.07);
+      padding: 40px 34px 36px;
+      position: relative;
+      transition: border-color .35s ease, transform .35s ease;
+    }
+    .review-card:hover {
+      border-color: rgba(255,255,255,.16);
+      transform: translateY(-4px);
+    }
+    .review-card::before {
+      content: '\201C';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      line-height: 1;
+      color: rgba(255,255,255,.06);
+      position: absolute;
+      top: 14px;
+      left: 26px;
+      pointer-events: none;
+    }
+    .review-stars {
+      margin-bottom: 20px;
+    }
+    .review-stars span {
+      color: var(--text-muted);
+      font-size: .8rem;
+      letter-spacing: 3px;
+    }
+    .review-text {
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .review-author {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .review-author-name {
+      font-family: var(--sans);
+      font-size: .65rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .review-author-event {
+      font-family: var(--sans);
+      font-size: .6rem;
+      font-weight: 300;
+      letter-spacing: .12em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    @media (max-width: 1024px) {
+      .reviews-grid { grid-template-columns: 1fr; gap: 20px; max-width: 560px; }
+    }
+    @media (max-width: 768px) {
+      .reviews-grid { max-width: 100%; }
+    }
+  </style>
   <meta name="description" content="Maison Liz, traiteur événementiel élégant spécialisé dans les buffets sucrés et salés pour mariages, entreprises et événements privés.">
   <meta property="og:image" content="./assets/img4.jpg">
 </head>
@@ -102,10 +201,55 @@
           <span class="stat-label">Artisanal</span>
         </div>
         <div class="reveal reveal-delay-4">
-          <span class="stat-num">Fait</span>
+          <span class="stat-num">Fait Maison</span>
           <span class="stat-label">Avec passion</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="reviews-header">
+      <span class="section-label reveal">Témoignages</span>
+      <div class="gold-rule reveal reveal-delay-1"></div>
+      <h2 class="section-title reveal reveal-delay-1">Ils nous ont fait<br><em>confiance</em></h2>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card reveal">
+        <div class="review-stars"><span>★★★★★</span></div>
+        <p class="review-text">
+          N°1
+        </p>
+        <div class="review-author">
+          <span class="review-author-name">John Doe.</span>
+          <span class="review-author-event">Mariage</span>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-stars"><span>★★★★★</span></div>
+        <p class="review-text">
+          N°2
+        </p>
+        <div class="review-author">
+          <span class="review-author-name">Jane Doe</span>
+          <span class="review-author-event">Événement Entreprise</span>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-stars"><span>★★★★★</span></div>
+        <p class="review-text">
+          N°3
+        </p>
+        <div class="review-author">
+          <span class="review-author-name">John & Jane Doe</span>
+          <span class="review-author-event">Anniversaire Privé</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -182,7 +326,7 @@
 
     <div class="creations-cols">
 
-            <div class="creations-col reveal">
+      <div class="creations-col reveal">
         <div class="creations-col-label">
           <span class="creations-col-icon">Salé</span>
           <div class="creations-col-label-rule"></div>
