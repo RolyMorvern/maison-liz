@@ -14,17 +14,10 @@
     /* ── REVIEWS SECTION ── */
     #reviews {
       background: var(--dark-2);
-      border-top: 1px solid rgba(201,165,90,.08);
-      border-bottom: 1px solid rgba(201,165,90,.08);
+      border-top: 1px solid rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(255,255,255,.05);
       position: relative;
       overflow: hidden;
-    }
-    #reviews::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: none;
-      pointer-events: none;
     }
     .reviews-header {
       text-align: center;
@@ -33,19 +26,29 @@
     .reviews-header .gold-rule {
       margin: 12px auto 20px;
     }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+
+    /* ── carousel viewport ── */
+    .reviews-viewport {
       max-width: 1100px;
       margin: 0 auto;
+      overflow: hidden;
     }
+    .reviews-track {
+      display: flex;
+      gap: 24px;
+      transition: transform .72s cubic-bezier(.76,0,.24,1);
+      will-change: transform;
+    }
+
+    /* each card: fixed width = (viewport - 2 gaps) / 3 */
     .review-card {
+      flex: 0 0 calc((100% - 48px) / 3);
       background: rgba(255,255,255,.02);
       border: 1px solid rgba(255,255,255,.07);
       padding: 40px 34px 36px;
       position: relative;
       transition: border-color .35s ease, transform .35s ease;
+      box-sizing: border-box;
     }
     .review-card:hover {
       border-color: rgba(255,255,255,.16);
@@ -56,19 +59,11 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 6rem;
       line-height: 1;
-      color: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.05);
       position: absolute;
       top: 14px;
       left: 26px;
       pointer-events: none;
-    }
-    .review-stars {
-      margin-bottom: 20px;
-    }
-    .review-stars span {
-      color: var(--text-muted);
-      font-size: .8rem;
-      letter-spacing: 3px;
     }
     .review-text {
       font-family: var(--serif);
@@ -80,9 +75,6 @@
       margin-bottom: 28px;
     }
     .review-author {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
       padding-top: 20px;
       border-top: 1px solid rgba(255,255,255,.06);
     }
@@ -94,19 +86,64 @@
       text-transform: uppercase;
       color: var(--text);
     }
-    .review-author-event {
-      font-family: var(--sans);
-      font-size: .6rem;
-      font-weight: 300;
-      letter-spacing: .12em;
-      color: var(--text-muted);
-      text-transform: uppercase;
+
+    /* ── carousel wrapper (arrows + viewport) ── */
+    .reviews-carousel-wrap {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      max-width: 1160px;
+      margin: 0 auto;
     }
-    @media (max-width: 1024px) {
-      .reviews-grid { grid-template-columns: 1fr; gap: 20px; max-width: 560px; }
+    .reviews-arrow {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: transparent;
+      color: rgba(255,255,255,.55);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .25s, color .25s, background .25s;
     }
-    @media (max-width: 768px) {
-      .reviews-grid { max-width: 100%; }
+    .reviews-arrow:hover {
+      border-color: rgba(255,255,255,.45);
+      color: #fff;
+      background: rgba(255,255,255,.05);
+    }
+    .reviews-arrow svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ── dot indicators ── */
+    .reviews-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 40px;
+    }
+    .reviews-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.18);
+      transition: background .3s, transform .3s;
+      cursor: pointer;
+    }
+    .reviews-dot.active {
+      background: rgba(255,255,255,.65);
+      transform: scale(1.35);
+    }
+
+    @media (max-width: 900px) {
+      .review-card { flex: 0 0 calc((100% - 24px) / 2); }
+    }
+    @media (max-width: 580px) {
+      .review-card { flex: 0 0 100%; }
     }
   </style>
   <meta name="description" content="Maison Liz, traiteur événementiel élégant spécialisé dans les buffets sucrés et salés pour mariages, entreprises et événements privés.">
@@ -215,42 +252,18 @@
       <div class="gold-rule reveal reveal-delay-1"></div>
       <h2 class="section-title reveal reveal-delay-1">Ils nous ont fait<br><em>confiance</em></h2>
     </div>
-    <div class="reviews-grid">
-
-      <div class="review-card reveal">
-        <div class="review-stars"><span>★★★★★</span></div>
-        <p class="review-text">
-          N°1
-        </p>
-        <div class="review-author">
-          <span class="review-author-name">John Doe.</span>
-          <span class="review-author-event">Mariage</span>
-        </div>
+    <div class="reviews-carousel-wrap">
+      <button class="reviews-arrow reviews-arrow--prev" id="reviewsPrev" aria-label="Précédent">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="reviews-viewport">
+        <div class="reviews-track" id="reviewsTrack"></div>
       </div>
-
-      <div class="review-card reveal reveal-delay-1">
-        <div class="review-stars"><span>★★★★★</span></div>
-        <p class="review-text">
-          N°2
-        </p>
-        <div class="review-author">
-          <span class="review-author-name">Jane Doe</span>
-          <span class="review-author-event">Événement Entreprise</span>
-        </div>
-      </div>
-
-      <div class="review-card reveal reveal-delay-2">
-        <div class="review-stars"><span>★★★★★</span></div>
-        <p class="review-text">
-          N°3
-        </p>
-        <div class="review-author">
-          <span class="review-author-name">John & Jane Doe</span>
-          <span class="review-author-event">Anniversaire Privé</span>
-        </div>
-      </div>
-
+      <button class="reviews-arrow reviews-arrow--next" id="reviewsNext" aria-label="Suivant">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
+    <div class="reviews-dots" id="reviewsDots"></div>
   </section>
 
   <!-- SIGNATURES MAISON LIZ -->
@@ -516,6 +529,110 @@
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
     function closeMobile() { mobileMenu.classList.remove('open'); }
+    // ── REVIEWS CAROUSEL ──────────────────────────────────────────
+    const reviews = [
+      { quote: "Je ne peux que rejoindre votre avis, j'ai pu gouter a plusieurs reprises les buffets de @maisonliz, a chaque fois un régal pour les papilles et les yeux. Des créations originales, bien présentées!", name: "Emilie Brolliat" },
+      { quote: "Pour avoir goûté les buffets de Maison Liz je ne peux que confirmer et recommander à 100%", name: "Alice Mimouni" },
+      { quote: "J'ai eu le plaisir de découvrir le travail de mon amie lors de ce superbe buffet, et je ne peux que la recommander. Tout était aussi beau que délicieux : des produits de qualité, une présentation soignée, et surtout beaucoup de goût et de générosité. Si vous cherchez quelqu'un de fiable, créative et passionnée pour vos événements... vous pouvez lui faire confiance les yeux fermés.", name: "Lila Mebarek" },
+      { quote: "Nous avons découvert le travail de Maison Liz @maisonliz_events, qui avait préparé de superbes douceurs pour la dégustation. C'était aussi beau que bon ! Un vrai régal pour les yeux et les papilles", name: "La CSF Loire" },
+      { quote: "Merci Maison Liz un service au top ! Les formules du midi étaient délicieuses", name: "Virginie Neto Garcia" },
+      { quote: "Tellllllement bon !!! Ma maman était super contente ! Elle m'a dit de te dire qu'ils étaient délicieux", name: "Anaïs (via WhatsApp)" },
+    ];
+
+    const VISIBLE   = 3; // cards visible at once
+    const GAP       = 24;
+    const track     = document.getElementById('reviewsTrack');
+    const dotsWrap  = document.getElementById('reviewsDots');
+    const total     = reviews.length;
+
+    // Build cloned infinite loop: [...last VISIBLE] + [...all] + [...first VISIBLE]
+    const order = [
+      ...reviews.slice(-VISIBLE),
+      ...reviews,
+      ...reviews.slice(0, VISIBLE)
+    ];
+
+    order.forEach(r => {
+      const card = document.createElement('div');
+      card.className = 'review-card';
+      card.innerHTML = `
+        <p class="review-text">${r.quote}</p>
+        <div class="review-author">
+          <span class="review-author-name">${r.name}</span>
+        </div>`;
+      track.appendChild(card);
+    });
+
+    // Dots (one per real review)
+    reviews.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'reviews-dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+    });
+
+    let current = 0; // index in the real reviews array
+    let isTransitioning = false;
+    let timer;
+
+    function cardWidth() {
+      return track.children[0] ? track.children[0].offsetWidth + GAP : 0;
+    }
+
+    function setPosition(index, animate) {
+      const offset = (index + VISIBLE) * cardWidth();
+      track.style.transition = animate ? 'transform .72s cubic-bezier(.76,0,.24,1)' : 'none';
+      track.style.transform  = `translateX(-${offset}px)`;
+    }
+
+    function updateDots() {
+      dotsWrap.querySelectorAll('.reviews-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function goTo(index, animate = true) {
+      current = ((index % total) + total) % total;
+      setPosition(current, animate);
+      updateDots();
+    }
+
+    function next() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      goTo(current + 1, true);
+    }
+
+    // After transition ends, silently jump back if we're in the clone zone
+    track.addEventListener('transitionend', () => {
+      isTransitioning = false;
+      // no looping needed since we're not animating past the clone boundary here
+    });
+
+    // Init: jump to position 0 without animation
+    setPosition(0, false);
+    updateDots();
+
+    // Auto-advance every 4.5s
+    function startTimer() { timer = setInterval(next, 4500); }
+    function stopTimer()  { clearInterval(timer); }
+    startTimer();
+
+    // Arrows
+    document.getElementById('reviewsPrev').addEventListener('click', () => {
+      stopTimer(); goTo(current - 1, true); startTimer();
+    });
+    document.getElementById('reviewsNext').addEventListener('click', () => {
+      stopTimer(); goTo(current + 1, true); startTimer();
+    });
+
+    // Pause on hover
+    track.addEventListener('mouseenter', stopTimer);
+    track.addEventListener('mouseleave', startTimer);
+
+    // Recalculate on resize
+    window.addEventListener('resize', () => setPosition(current, false));
+    // ──────────────────────────────────────────────────────────────
   </script>
 </body>
 </html>
