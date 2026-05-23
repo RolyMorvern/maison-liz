@@ -54,6 +54,22 @@
       border-color: rgba(255,255,255,.16);
       transform: translateY(-4px);
     }
+    a.review-card {
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 20px;
+    }
+    .review-stars svg {
+      width: 14px;
+      height: 14px;
+      fill: #c9a84c;
+      flex-shrink: 0;
+    }
     .review-card::before {
       content: '\201C';
       font-family: 'Cormorant Garamond', serif;
@@ -531,12 +547,12 @@
     function closeMobile() { mobileMenu.classList.remove('open'); }
     // ── REVIEWS CAROUSEL ──────────────────────────────────────────
     const reviews = [
-      { quote: "Je ne peux que rejoindre votre avis, j'ai pu gouter a plusieurs reprises les buffets de @maisonliz, a chaque fois un régal pour les papilles et les yeux. Des créations originales, bien présentées!", name: "Emilie Brolliat" },
-      { quote: "Pour avoir goûté les buffets de Maison Liz je ne peux que confirmer et recommander à 100%", name: "Alice Mimouni" },
-      { quote: "Tout était aussi beau que délicieux : des produits de qualité, une présentation soignée, et surtout beaucoup de goût et de générosité. Vous pouvez lui faire confiance les yeux fermés.", name: "Lila Mebarek" },
-      { quote: "Nous avons découvert le travail de Maison Liz @maisonliz_events, qui avait préparé de superbes douceurs pour la dégustation. C'était aussi beau que bon ! Un vrai régal pour les yeux et les papilles", name: "La CSF Loire" },
-      { quote: "Merci Maison Liz un service au top ! Les formules du midi étaient délicieuses", name: "Virginie Neto Garcia" },
-      { quote: "Tellllllement bon !!! Ma maman était super contente ! Elle m'a dit de te dire qu'ils étaient délicieux", name: "Anaïs (via WhatsApp)" },
+      { quote: "Pour avoir goûté à plusieurs reprises, je recommande à 200%. Fait maison, produits de qualité et fait avec passion !", name: "Alice Mimouni", link: "https://share.google/z0jEsmUv5R6NulZ9W"},
+      { quote: "Prestation au top ! Buffet incroyable tant sur le visuel que le goût ! Leila est très à l’écoute des besoins ! Merci à vous !", name: "Alexandra Descoins", link: "https://share.google/BcEyTslAOB3nlEdWL" },
+      { quote: "Un service professionnel avec un menu varié et délicieux", name: "Sekou Amadou Sylla", link: "https://share.google/QGYkVjuSrrw0sGvhl" },
+      { quote: "J'ai eu la chance de participer à plusieurs événements où les buffets étaient organisés par Maison Liz : un régal pour les yeux et les papilles ! Tout est délicieux, la présentation est soignée, on sent que tout a été réfléchi dans les moindres détails. Bravo Maison Liz !", name: "Anaïs Leblanc", link: "https://share.google/gsTIS4anACPIsmssb" },
+      { quote: "Nos recommandons les prestations de Leïla et de son équipe. Tant au niveau des prestations que de la qualité des produits à suivre", name: "Groupe et Decouverte", link: "https://share.google/RoyfwXWbpCTSJMDbt" },
+      { quote: "Excellent traiteur. Produit frais de qualité et 100% maison. Je recommande", name: "Nasser", link: "https://share.google/hWPvkmgrw3R1KK9vz" },
     ];
 
     const VISIBLE   = 3; // cards visible at once
@@ -552,10 +568,16 @@
       ...reviews.slice(0, VISIBLE)
     ];
 
+    const starSVG = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+
     order.forEach(r => {
-      const card = document.createElement('div');
+      const card = document.createElement('a');
       card.className = 'review-card';
+      card.href = r.link;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
       card.innerHTML = `
+        <div class="review-stars">${starSVG.repeat(5)}</div>
         <p class="review-text">${r.quote}</p>
         <div class="review-author">
           <span class="review-author-name">${r.name}</span>
